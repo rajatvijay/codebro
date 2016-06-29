@@ -12,7 +12,7 @@ class Paste(models.Model):
                            ('c', 'C'))
 
     title = models.CharField(max_length=200)
-    syntax = models.CharField(choices=SYNTAX_HIGHLIGHTING)
+    syntax = models.CharField(choices=SYNTAX_HIGHLIGHTING, max_length=10, default='python')
     paste = models.TextField()
     slug = models.SlugField(max_length=6)
     created = models.DateTimeField(auto_now_add=True)
