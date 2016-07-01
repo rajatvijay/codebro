@@ -1,15 +1,18 @@
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
-<head>
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'django_pygments/css/pygments_default.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'django_pygments/css/demo.css' %}" />
-</head>
-<body>
-    <div id="content">
-        {% block content %}
-        {% endblock %}
-    </div>
-</body>
+    <head>
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'django_pygments/css/pygments_default.css' %}" />
+    </head>
+    <body>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
 </html>

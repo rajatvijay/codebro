@@ -5,4 +5,4 @@ from .models import Paste
 class PasteForm(forms.ModelForm):
     class Meta:
         model = Paste
-        fields = ('title', 'paste', 'syntax', 'style', 'linenos')
+        fields = ('title', 'paste', 'syntax')

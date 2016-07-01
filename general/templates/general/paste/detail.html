@@ -2,20 +2,21 @@
 
 {% load pygmentify %}
 
-{% block title %}{{ paste.title }}{% endblock %}
+{% block title %}
+    {{ paste.title }}
+{% endblock %}
 
 {% block content %}
-  <h1>{{ paste.title }}</h1>
-  <p class="date">
-    Created {{ paste.created }}
-  </p>
-  <p>
-    Language: {{ paste.syntax }}
-  </p>
+    <h1>{{ paste.title }}</h1>
+    <p class="date">
+        Created {{ paste.created }}
+    </p>
+    <p>
+        Language: {{ paste.syntax }}
+    </p>
     {% pygment %}
-    <pre lang="{{ paste.syntax }}">
-  {{ paste.paste }}
-    </pre>
+        <pre lang="{{ paste.syntax }}">
+            {{ paste.paste }}
+        </pre>
     {% endpygment %}
-
 {% endblock %}
