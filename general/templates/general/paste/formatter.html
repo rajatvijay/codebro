@@ -1,7 +1,5 @@
 {% extends 'general/base.html' %}
 
-{% load pygmentify %}
-
 {% block title %}{{ paste.title }}{% endblock %}
 
 {% block content %}
@@ -12,10 +10,8 @@
   <p>
     Language: {{ paste.syntax }}
   </p>
-    {% pygment %}
-    <pre lang="{{ paste.syntax }}">
-  {{ paste.paste }}
-    </pre>
-    {% endpygment %}
+  {% autoescape off %}
+     {{ paste.highlighted }}
+  {% endautoescape %}
 
 {% endblock %}
