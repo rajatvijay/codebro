@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import PasteForm
 from .models import Paste
+from django.shortcuts import get_object_or_404
 
 import uuid
 
@@ -13,7 +14,7 @@ def paste_create(request):
             new_paste = paste_form.save(commit=False)
             new_paste.slug = uuid.uuid4().hex[:6].upper()
             new_paste.save()
-
+        return redirect('post_list')
     else:
         paste_form = PasteForm()
 
@@ -21,6 +22,11 @@ def paste_create(request):
 
 
 def paste_list(request):
-    pasts = Paste.objects.all()
+    pastes = Paste.objects.all()
 
-    return render(request, 'general/paste/list.html', {'pasts': pasts})
+    return render(request, 'general/paste/list.html', {'pastes': pastes})
+
+
+def paste_detail(request, slug):
+    paste = get_object_or_404(Paste, slug=slug)
+    return render(request, 'general/paste/detail.html', {'paste': paste})

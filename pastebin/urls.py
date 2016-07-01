@@ -18,5 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^pygments/', include('django_pygments.urls'))
+    url(r'^pygments/', include('django_pygments.urls')),
+    url(r'^general/', include('general.urls')),
+
 ]

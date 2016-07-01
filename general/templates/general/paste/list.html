@@ -1,0 +1,11 @@
+{% extends "general/base.html" %}
+
+{% block title %}My pastes{% endblock %}
+
+{% block content %}
+    <h1>My Pastes</h1>
+    {% for paste in pastes %}
+        <h2><a href="{% url "paste_detail" paste.slug %}">{{ paste.title }}</a></h2>
+        <p class="date">Created {{ paste.created }}</p>
+    {% endfor %}
+{% endblock %}

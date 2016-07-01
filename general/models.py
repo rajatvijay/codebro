@@ -14,6 +14,6 @@ class Paste(models.Model):
     title = models.CharField(max_length=200)
     syntax = models.CharField(choices=SYNTAX_HIGHLIGHTING, max_length=10, default='python')
     paste = models.TextField()
-    slug = models.SlugField(max_length=6)
+    slug = models.SlugField(max_length=6, unique=True, db_index=True, editable=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
