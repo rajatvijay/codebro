@@ -11,6 +11,9 @@
     <p class="date">
         Created {{ paste.created }}
     </p>
+    <p class="share-link">
+        Share {{ paste.get_absolute_url }}
+    </p>
     <p>
         Language: {{ paste.syntax }}
     </p>

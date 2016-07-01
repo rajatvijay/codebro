@@ -4,8 +4,17 @@
 
 {% block content %}
     <h1>My Pastes</h1>
-    {% for paste in pastes %}
-        <h2><a href="{% url "paste_detail" paste.slug %}">{{ paste.title }}</a></h2>
-        <p class="date">Created {{ paste.created }}</p>
-    {% endfor %}
+        {% for paste in pastes %}
+            <h2>
+                <a href="{% url "paste_detail" paste.slug %}">
+                    {{ paste.title }}
+                </a>
+            </h2>
+            <p class="date">
+                Created {{ paste.created }}
+            </p>
+            <p class="share-link">
+                Share {{ paste.get_absolute_url }}
+            </p>
+        {% endfor %}
 {% endblock %}
