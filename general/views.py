@@ -24,12 +24,21 @@ def paste_create(request):
 
 def paste_list(request):
     pastes = Paste.objects.all()
-    return render(request, 'general/paste/list.html', {'pastes': pastes})
+    share_url = {str(paste.title): request.build_absolute_uri(paste.get_share_url()) for paste in pastes}
+    raw_url = {str(paste.title): request.build_absolute_uri(paste.get_raw_url()) for paste in pastes}
+    return render(request, 'general/paste/list.html', {'pastes': pastes,
+                                                       'share_urls': share_url,
+                                                       'raw_urls': raw_url})
 
 
 def paste_detail(request, slug):
     paste = get_object_or_404(Paste, slug=slug)
-    return render(request, 'general/paste/detail.html', {'paste': paste})
+    share_url = request.build_absolute_uri(paste.get_share_url())
+    raw_url = request.build_absolute_uri(paste.get_raw_url())
+    return render(request, 'general/paste/detail.html', {'paste': paste,
+                                                         'share_url': share_url,
+                                                         'raw_url': raw_url})
+
 
 
 def paste_raw(request, slug):

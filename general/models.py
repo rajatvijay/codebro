@@ -16,5 +16,8 @@ class Paste(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    def get_absolute_url(self):
+    def get_share_url(self):
         return reverse('paste_detail', args=[self.slug])
+
+    def get_raw_url(self):
+        return reverse('paste_raw', args=[self.slug])

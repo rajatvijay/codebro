@@ -1,5 +1,7 @@
 {% extends "general/base.html" %}
 
+{% load lookup %}
+
 {% block title %}My pastes{% endblock %}
 
 {% block content %}
@@ -14,7 +16,14 @@
                 Created {{ paste.created }}
             </p>
             <p class="share-link">
-                Share {{ paste.get_absolute_url }}
+                Share <a href="{{ share_urls | get_item:paste.title }}">
+                {{ share_urls | get_item:paste.title }}
+                </a>
+            </p>
+            <p class="raw-link">
+                Raw <a href="{{ raw_urls | get_item:paste.title }}">
+                {{ raw_urls | get_item:paste.title }}
+                </a>
             </p>
         {% endfor %}
 {% endblock %}

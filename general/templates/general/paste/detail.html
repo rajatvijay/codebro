@@ -12,7 +12,14 @@
         Created {{ paste.created }}
     </p>
     <p class="share-link">
-        Share {{ paste.get_absolute_url }}
+        Share <a href="{{ share_url }}">
+            {{ share_url }}
+        </a>
+    </p>
+    <p class="raw-link">
+        Raw <a href="{{ raw_url }}">
+            {{ raw_url }}
+        </a>
     </p>
     <p>
         Language: {{ paste.syntax }}
