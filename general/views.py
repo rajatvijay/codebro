@@ -40,7 +40,6 @@ def paste_detail(request, slug):
                                                          'raw_url': raw_url})
 
 
-
 def paste_raw(request, slug):
     paste = get_object_or_404(Paste, slug=slug)
     raw = highlight(paste.paste, lexer=TextLexer(), formatter=HtmlFormatter())

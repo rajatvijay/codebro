@@ -1,6 +1,7 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
+from . import views
 
-urlpatterns = patterns(
-    'django_pygments.views',
-    (r'demo/$', 'demo'),
-)
+
+urlpatterns = [
+    url(r'demo/$', views.demo, name='demo')
+]
