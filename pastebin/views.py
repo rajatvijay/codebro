@@ -15,7 +15,7 @@ def paste_create(request):
             new_paste = paste_form.save(commit=False)
             new_paste.slug = uuid.uuid4().hex[:6].upper()
             new_paste.save()
-        return redirect('post_list')
+        return redirect('paste_list')
     else:
         paste_form = PasteForm()
 

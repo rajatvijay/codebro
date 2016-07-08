@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_pygments',
-    'general',
+    'pastebin',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'pastebin.urls'
+ROOT_URLCONF = 'codebro.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'pastebin.wsgi.application'
+WSGI_APPLICATION = 'codebro.wsgi.application'
 
 
 # Database
